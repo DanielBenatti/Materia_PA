@@ -5,27 +5,30 @@ algoritmo "gastos"
 // Seção de Declarações 
 var
 
-saldo,c1,c2,c3,total: real
+saldo,act,total: real
+resp: caractere
 
 inicio
+saldo<-1000
 
-Escreval("Qual era o seu saldo antes das ultimas 3 transaçoes?")
-leia(saldo)
-Escreval("qual foi o gasto de cada uma destas 3 transaçoes, digite cada uma apos o bip")
-escreval("bip")
-leia(c1)
-Escreval("bip")
-leia(c2)
-Escreval("bip")
-leia(c3)
+escreval("Para depositar digite 1")
+escreval("Para retirar digite 2")
+leia(resp)
 
-total<- saldo -(c1+c2+c3)
-
-se(total < 0)entao
-    escreval("Voce gastou demais e esta devendo um total de R$",total)
-senao
-    escreval("O seu saldo atual ainda é positivo sendo de R$", total)
+se(resp="1")entao
+    escreval("quanto deseja depositar?")
+    leia(act)
+    total<- saldo+act
+fimse
+se(resp="2")entao
+    escreval("Quanto deseja sacar?")
+    leia(act)
+    total<- saldo-act
 fimse
 
+se(total>0)
+    escreval("Seu saldo é positivo no valor de R$", total)
+senao
+    escreval("Seu saldo é negativo no valor de R$", total)
 fimalgoritmo
 
